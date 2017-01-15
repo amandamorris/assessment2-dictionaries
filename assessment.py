@@ -4,6 +4,7 @@
 dictionaries and sets.
 """
 
+
 def count_words(phrase):
     """Count unique words in a string.
 
@@ -91,7 +92,7 @@ def word_length_sorted(words):
     for wordlist in word_lengths.values():
         wordlist.sort()
 
-    return [tup for tup in sorted(word_lengths.items())]
+    return [wordslength for wordslength in sorted(word_lengths.items())]
 
 def translate_to_pirate_talk(phrase):
     """Translate phrase to pirate talk.
