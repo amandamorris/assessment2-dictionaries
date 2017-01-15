@@ -198,22 +198,24 @@ def kids_game(names):
     good solutions here will definitely require a dictionary.
 
     """
-    # start with first word in list, remove it from list
-    # get last character of word
-    # find first word in list that starts with last character of prev word
+    starts_with_letter = {}  # dictionary to store wordlist by initial letter
+    game = []  # list to store the words from the game
 
-    starts_with_letter = {}
-    game = []
     # create dictionary where keys are letters
     # values are words in names that start with that letter
     for word in names[1:]:
         starts_with_letter.setdefault(word[0], [])
         starts_with_letter[word[0]].append(word)
 
-    word = names[0]
+    word = names[0]  # first word in the game - don't add to dictionary b/c
+                     # we're using it right away
 
-    game.append(word)
+    game.append(word)  # add this first word to our game
 
+    # while there's still at least one unused word that starts with next_initial
+    # (the last letter of our previous word)... pop the first word that starts
+    # with next_initial, that word becomes the next word, and append it to our
+    # game
     while starts_with_letter.get(word[-1], None):
         next_initial = word[-1]
         next_word = starts_with_letter[next_initial].pop(0)
@@ -222,7 +224,7 @@ def kids_game(names):
 
     return game
 
-#kids_game(["noon", "naan", "nun", "niin"])
+#print kids_game(["cat", "noon", "naan", "nun", "niin"])
 #####################################################################
 # You can ignore everything below this.
 
